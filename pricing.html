@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --pink:#EC4B8A;--pink-d:#C9356F;--blush:#FDE7F0;--blush-2:#FBD9E8;--soft:#FFF6FA;
+  --ink:#241B22;--ink-soft:#6E6470;--ink-faint:#B0A5B3;--line:#EFE2EA;
+  --mint:#3FB389;--mint-bg:#E6F6EF;
+}
+@page{size:A4;margin:0}
+body{font-family:'Poppins',sans-serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;-webkit-font-smoothing:antialiased;background:#f4eef7}
+.page{width:210mm;min-height:297mm;background:#fff;margin:0 auto;padding:32px 44px 32px;position:relative;overflow:hidden}
+
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;padding-bottom:16px;border-bottom:2px solid var(--blush-2)}
+.logo{display:flex;align-items:baseline;gap:6px}
+.logo .c{font-weight:800;font-size:22px;color:var(--ink)}
+.logo .l{font-family:'Caveat',cursive;font-size:26px;color:var(--pink);line-height:1}
+.tag{font-size:10.5px;font-weight:600;color:var(--ink-soft);background:var(--blush);border-radius:100px;padding:6px 14px;letter-spacing:.03em}
+
+.hero{background:linear-gradient(135deg,#EC4B8A 0%,#C9356F 100%);border-radius:18px;padding:22px 28px;color:#fff;display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.hero-l h1{font-size:21px;font-weight:800;line-height:1.25;margin-bottom:6px}
+.hero-l p{font-size:12.5px;opacity:.9;font-weight:400;line-height:1.55;max-width:320px}
+.hero-r{text-align:right;flex-shrink:0;padding-left:20px}
+.hero-r .big{font-size:36px;font-weight:800;line-height:1}
+.hero-r .sub{font-size:11.5px;opacity:.85;margin-top:5px}
+.hero-r .pay{font-size:11px;opacity:.75;margin-top:8px;background:rgba(255,255,255,.15);border-radius:8px;padding:5px 10px;display:inline-block}
+
+.sec-label{font-size:10px;font-weight:700;color:var(--pink);text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px;margin-top:22px;display:flex;align-items:center;gap:8px}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--blush-2)}
+
+.included-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:4px}
+.chip{display:flex;align-items:center;gap:9px;background:var(--soft);border:1.5px solid var(--blush-2);border-radius:10px;padding:8px 13px}
+.chip .ck{width:20px;height:20px;border-radius:6px;background:var(--mint-bg);color:var(--mint);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;font-weight:700}
+.chip span{font-size:11.5px;font-weight:500;color:var(--ink);line-height:1.35}
+
+/* payment options */
+.pay-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:6px}
+.pay-card{border:1.5px solid var(--line);border-radius:12px;padding:12px 14px}
+.pay-card.highlight{border-color:var(--mint);background:var(--mint-bg)}
+.pay-card .pay-name{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:4px}
+.pay-card .pay-fee{font-size:11px;color:var(--ink-soft);line-height:1.4}
+.pay-card .pay-fee b{color:var(--ink)}
+.pay-card .pay-badge{display:inline-block;margin-top:6px;font-size:9.5px;font-weight:700;padding:2px 8px;border-radius:100px;background:var(--mint);color:#fff;letter-spacing:.04em}
+.pay-card.highlight .pay-fee b{color:var(--mint-bg);filter:brightness(.5)}
+
+/* domain cards */
+.domain-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:6px}
+.domain-card{border:1.5px solid var(--line);border-radius:14px;padding:14px 16px;position:relative}
+.domain-card.rec{border-color:var(--pink);background:var(--soft)}
+.rec-badge{position:absolute;top:-10px;left:14px;background:var(--pink);color:#fff;font-size:9.5px;font-weight:700;padding:3px 10px;border-radius:100px;letter-spacing:.04em}
+.domain-name{font-size:16px;font-weight:800;color:var(--ink);margin-bottom:8px}
+.domain-name span{color:var(--pink)}
+.domain-row-inner{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}
+.domain-row-inner .lbl{font-size:11px;color:var(--ink-soft);font-weight:500}
+.domain-row-inner .val{font-size:13px;font-weight:700;color:var(--ink)}
+.domain-note{font-size:10.5px;color:var(--ink-faint);margin-top:6px;line-height:1.4;font-style:italic}
+
+.cost-block{border:1.5px solid var(--line);border-radius:14px;overflow:hidden;margin-bottom:6px}
+.cost-row{display:flex;align-items:center;justify-content:space-between;padding:11px 16px;gap:16px}
+.cost-row+.cost-row{border-top:1px solid var(--line)}
+.cost-row .t{font-size:13px;font-weight:700;color:var(--ink)}
+.cost-row .d{font-size:11px;color:var(--ink-soft);margin-top:1px;line-height:1.4}
+.cost-row .amt{font-size:14px;font-weight:800;color:var(--ink);white-space:nowrap;flex-shrink:0}
+
+.summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:4px}
+.sum-card{border:1.5px solid var(--line);border-radius:14px;overflow:hidden}
+.sum-card.main{border-color:var(--pink)}
+.sum-header{padding:10px 16px;background:var(--soft);border-bottom:1.5px solid var(--line);font-size:12px;font-weight:700;color:var(--ink)}
+.sum-card.main .sum-header{background:var(--blush);border-color:var(--blush-2)}
+.sum-line{display:flex;justify-content:space-between;padding:8px 16px;border-bottom:1px solid var(--line);font-size:11.5px;color:var(--ink-soft)}
+.sum-line:last-child{border-bottom:none}
+.sum-line.total{background:var(--blush);font-size:13px;font-weight:800;color:var(--ink)}
+.sum-line.total .sum-val{color:var(--pink);font-size:15px}
+.sum-line.yr2{background:#fafafa;font-size:11px;color:var(--ink-soft);font-style:italic}
+.sum-line.optional{background:#f0faf5;font-size:11.5px;color:#2a6649;border-left:3px solid var(--mint)}
+.sum-line.optional .sum-val{color:#1a7a54}
+.sum-val{font-weight:600;color:var(--ink);flex-shrink:0;padding-left:8px}
+
+.note-box{background:var(--blush);border-radius:12px;padding:11px 15px;font-size:11px;color:var(--ink-soft);line-height:1.6;margin-top:16px}
+.note-box b{color:#241B22;font-weight:600}
+
+.foot{display:flex;justify-content:space-between;align-items:center;margin-top:20px;padding-top:14px;border-top:1.5px solid var(--line)}
+.foot .who .nm{font-size:13px;font-weight:700}
+.foot .who .em{font-size:11px;color:var(--ink-soft);margin-top:1px}
+.foot .msg{font-size:11px;color:var(--ink-faint)}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="top">
+    <div class="logo"><span class="c">Cakeys</span><span class="l">with love</span></div>
+    <div class="tag">Web App Pricing · June 2026</div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-l">
+      <h1>Your web app,<br>fully built &amp; launched</h1>
+      <p>A branded ordering site your customers open from any phone — no app store needed. Below is every cost, broken down clearly.</p>
+    </div>
+    <div class="hero-r">
+      <div class="big">₦150,000</div>
+      <div class="sub">one-time build fee</div>
+      <div class="pay">50% to start &nbsp;·&nbsp; 50% on launch</div>
+    </div>
+  </div>
+
+  <!-- WHAT'S INCLUDED -->
+  <div class="sec-label">What's included in the build</div>
+  <div class="included-grid">
+    <div class="chip"><div class="ck">✓</div><span>Branded landing page — home, about &amp; menu</span></div>
+    <div class="chip"><div class="ck">✓</div><span>Online ordering — cart &amp; full checkout</span></div>
+    <div class="chip"><div class="ck">✓</div><span>Order confirmation page for the customer</span></div>
+    <div class="chip"><div class="ck">✓</div><span>Works on every phone — no app download</span></div>
+    <div class="chip"><div class="ck">✓</div><span>Fully deployed &amp; live before handover</span></div>
+    <div class="chip"><div class="ck">✓</div><span>30 days post-launch support included</span></div>
+  </div>
+
+  <!-- PAYMENT OPTIONS -->
+  <div class="sec-label" style="margin-top:16px">Payment options — choose how customers pay</div>
+  <div class="pay-row">
+    <div class="pay-card">
+      <div class="pay-name">Paystack</div>
+      <div class="pay-fee">1.5% fee per transaction<br>paid to Paystack directly</div>
+    </div>
+    <div class="pay-card">
+      <div class="pay-name">Flutterwave</div>
+      <div class="pay-fee">1.4% fee per transaction<br>paid to Flutterwave directly</div>
+    </div>
+    <div class="pay-card highlight">
+      <div class="pay-name" style="color:#1a7a54">Direct Bank Transfer</div>
+      <div class="pay-fee" style="color:#2a6649"><b>₦50,000 one-time setup</b><br>No fees on your transactions</div>
+      <div class="pay-badge">NO TRANSACTION FEES</div>
+    </div>
+  </div>
+  <div style="font-size:10.5px;color:var(--ink-faint);font-style:italic;margin-bottom:4px">Direct bank transfer is the most cost-effective option for high order volumes — you keep 100% of every payment.</div>
+
+  <!-- YEARLY COSTS -->
+  <div class="sec-label">Yearly running costs — to keep it live</div>
+
+  <div style="font-size:11px;color:var(--ink-soft);font-weight:600;margin-bottom:8px">Domain name — your web address (choose one)</div>
+  <div class="domain-row">
+    <div class="domain-card rec">
+      <div class="rec-badge">RECOMMENDED</div>
+      <div class="domain-name">cakeyswithlove<span>.com</span></div>
+      <div class="domain-row-inner"><span class="lbl">Year 1</span><span class="val">₦15,900</span></div>
+      <div class="domain-row-inner"><span class="lbl">Year 2 onwards</span><span class="val">₦30,900 / year</span></div>
+      <div class="domain-note">Most trusted extension. Cheaper to renew than .shop from year 2.</div>
+    </div>
+    <div class="domain-card">
+      <div class="domain-name">cakeyswithlove<span style="color:var(--ink-soft)">.shop</span></div>
+      <div class="domain-row-inner"><span class="lbl">Year 1</span><span class="val">₦1,900</span></div>
+      <div class="domain-row-inner"><span class="lbl">Year 2 onwards</span><span class="val">₦53,900 / year</span></div>
+      <div class="domain-note">Low entry cost but renewal jumps from year 2 — works out more expensive long-term.</div>
+    </div>
+  </div>
+
+  <!-- Hosting only -->
+  <div class="cost-block" style="margin-top:10px">
+    <div class="cost-row">
+      <div class="left">
+        <div class="t">Web Hosting</div>
+        <div class="d">Server that keeps the site online 24/7 — ₦7,000 per month</div>
+      </div>
+      <div class="amt">₦84,000 / year</div>
+    </div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="sec-label">Full cost summary</div>
+  <div class="summary-grid">
+
+    <div class="sum-card main">
+      <div class="sum-header">With cakeyswithlove.com</div>
+      <div class="sum-line"><span>Development (one-time)</span><span class="sum-val">₦150,000</span></div>
+      <div class="sum-line"><span>Domain — year 1</span><span class="sum-val">₦15,900</span></div>
+      <div class="sum-line"><span>Hosting</span><span class="sum-val">₦84,000</span></div>
+      <div class="sum-line optional"><span>Direct Bank Transfer setup <em>(optional)</em></span><span class="sum-val">+ ₦50,000</span></div>
+      <div class="sum-line total"><span>Total — Year 1</span><span class="sum-val">₦249,900</span></div>
+      <div class="sum-line yr2"><span>+ ₦50,000 if direct bank transfer chosen</span><span class="sum-val" style="color:#1a7a54">= ₦299,900</span></div>
+      <div class="sum-line yr2"><span>Every year after</span><span class="sum-val" style="color:var(--ink-soft)">₦114,900 / year</span></div>
+    </div>
+
+    <div class="sum-card">
+      <div class="sum-header">With cakeyswithlove.shop</div>
+      <div class="sum-line"><span>Development (one-time)</span><span class="sum-val">₦150,000</span></div>
+      <div class="sum-line"><span>Domain — year 1</span><span class="sum-val">₦1,900</span></div>
+      <div class="sum-line"><span>Hosting</span><span class="sum-val">₦84,000</span></div>
+      <div class="sum-line optional"><span>Direct Bank Transfer setup <em>(optional)</em></span><span class="sum-val">+ ₦50,000</span></div>
+      <div class="sum-line total"><span>Total — Year 1</span><span class="sum-val">₦235,900</span></div>
+      <div class="sum-line yr2"><span>+ ₦50,000 if direct bank transfer chosen</span><span class="sum-val" style="color:#1a7a54">= ₦285,900</span></div>
+      <div class="sum-line yr2"><span>Every year after</span><span class="sum-val" style="color:var(--ink-soft)">₦137,900 / year</span></div>
+    </div>
+
+  </div>
+
+  <!-- NOTE -->
+  <div class="note-box">
+    <b>Timeline:</b> 3–5 weeks from deposit to launch. &nbsp;|&nbsp;
+    <b>Ownership:</b> Once fully paid, the app and all its code belong entirely to you. &nbsp;|&nbsp;
+    <b>Extra features:</b> Anything beyond the original scope is quoted and agreed before work begins.
+  </div>
+
+  <!-- FOOTER -->
+  <div class="foot">
+    <div class="who"><div class="nm">Ayomide Adejola</div><div class="em">adeayo35@gmail.com</div></div>
+    <div class="msg">Happy to walk through any part of this.</div>
+  </div>
+
+</div>
+</body>
+</html>
