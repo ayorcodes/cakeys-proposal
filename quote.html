@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Quicksand:wght@600;700&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --pink:#EC4B8A;--pink-d:#C9356F;--blush:#FDE7F0;--blush-2:#FBD9E8;--soft:#FFF6FA;
+  --ink:#241B22;--ink-soft:#6E6470;--ink-faint:#A99FAC;--line:#EFE2EA;--mint:#3FB389;--mint-bg:#E6F6EF;
+}
+@page{size:A4;margin:0}
+body{font-family:'Poppins',sans-serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;-webkit-font-smoothing:antialiased}
+.page{width:210mm;height:297mm;background:#fff;position:relative;padding:36px 54px 30px;display:flex;flex-direction:column;overflow:hidden}
+svg{display:block}
+
+/* header */
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.logo{display:flex;align-items:baseline;gap:8px}
+.logo .c{font-family:'Poppins';font-weight:800;font-size:24px}
+.logo .l{font-family:'Caveat',cursive;font-size:28px;color:var(--pink)}
+.tag{font-size:11px;font-weight:600;color:var(--ink-soft);background:var(--blush);border-radius:100px;padding:8px 16px}
+
+/* hero */
+.hero{background:var(--pink);border-radius:22px;padding:24px 32px;color:#fff;display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}
+.hero .l h1{font-family:'Quicksand';font-weight:700;font-size:25px;line-height:1.2;margin-bottom:8px}
+.hero .l p{font-size:13px;opacity:.9;font-weight:400}
+.hero .price{text-align:right;flex-shrink:0;padding-left:24px}
+.hero .price .amt{font-family:'Poppins';font-weight:800;font-size:40px;line-height:1}
+.hero .price .sub{font-size:12px;opacity:.9;margin-top:6px}
+
+/* what you get */
+.h2{font-size:13px;font-weight:700;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px}
+.items{display:flex;flex-direction:column;gap:10px;margin-bottom:18px}
+.item{display:flex;align-items:flex-start;gap:18px;border:1.5px solid var(--line);border-radius:18px;padding:15px 20px}
+.item .ic{width:50px;height:50px;border-radius:15px;background:var(--blush);color:var(--pink);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.item .mid{flex:1}
+.item .t{font-size:16px;font-weight:700;margin-bottom:4px}
+.item .d{font-size:12.5px;color:var(--ink-soft);line-height:1.55}
+.item .amt{font-family:'Poppins';font-weight:800;font-size:18px;white-space:nowrap;align-self:center}
+.totrow{display:flex;justify-content:space-between;align-items:center;background:var(--soft);border:1.5px solid var(--blush-2);border-radius:18px;padding:16px 22px;margin-bottom:20px}
+.totrow .lab{font-size:15px;font-weight:700}
+.totrow .lab span{font-size:11px;font-weight:500;color:var(--ink-soft);display:block;margin-top:2px}
+.totrow .amt{font-family:'Poppins';font-weight:800;font-size:28px;color:var(--pink)}
+
+/* bottom blocks */
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.block{border:1.5px solid var(--line);border-radius:18px;padding:22px 24px}
+.block .bh{font-size:14px;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.pay-step{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.pay-step:last-child{margin-bottom:0}
+.pay-step .n{width:44px;height:44px;border-radius:13px;background:var(--blush);color:var(--pink);font-family:'Poppins';font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.pay-step .pt{font-size:13.5px;font-weight:700}
+.pay-step .ps{font-size:11.5px;color:var(--ink-soft);margin-top:1px}
+.never li{list-style:none;font-size:13px;color:var(--ink-soft);font-weight:500;padding:7px 0 7px 26px;position:relative;line-height:1.4}
+.never li .ck{position:absolute;left:0;top:7px;color:var(--mint)}
+.never li b{color:var(--ink);font-weight:600}
+
+/* note + footer */
+.phonenote{background:var(--blush);border-radius:16px;padding:15px 22px;font-size:12.5px;color:var(--ink);line-height:1.55;font-weight:500;margin:16px 0 0;display:flex;gap:12px;align-items:center}
+.phonenote b{color:var(--pink-d)}
+.foot{display:flex;justify-content:space-between;align-items:flex-end;margin-top:auto;padding-top:16px;border-top:1.5px solid var(--line)}
+.foot .who .nm{font-size:15px;font-weight:700}
+.foot .who .em{font-size:12px;color:var(--ink-soft);margin-top:2px}
+.foot .date{font-family:'Caveat',cursive;font-size:18px;color:var(--pink)}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="top">
+    <div class="logo"><span class="c">Cakeys</span><span class="l">with love</span></div>
+    <div class="tag">App Cost Summary · June 2026</div>
+  </div>
+
+  <div class="hero">
+    <div class="l">
+      <h1>One app. One payment.<br>Yours to keep.</h1>
+      <p>A complete ordering app, built around your brand — no monthly fees, ever.</p>
+    </div>
+    <div class="price">
+      <div class="amt">₦1,200,000</div>
+      <div class="sub">one-time</div>
+    </div>
+  </div>
+
+  <div class="h2">What you're getting</div>
+  <div class="items">
+
+    <div class="item">
+      <div class="ic"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M10 5.5h4"/></svg></div>
+      <div class="mid">
+        <div class="t">Your own branded app</div>
+        <div class="d">Your name, logo and colours throughout. Customers download <b>"Cakeys With Love"</b> — not a shared platform. It's a real asset you own.</div>
+      </div>
+      <div class="amt">₦400,000</div>
+    </div>
+
+    <div class="item">
+      <div class="ic"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1 12H7z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg></div>
+      <div class="mid">
+        <div class="t">A shopping app for your customers</div>
+        <div class="d">They browse your menu, place orders, pay, and follow their delivery — all inside your app, anytime.</div>
+      </div>
+      <div class="amt">₦450,000</div>
+    </div>
+
+    <div class="item">
+      <div class="ic"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M9 7h6M9 11h6M9 15h3"/></svg></div>
+      <div class="mid">
+        <div class="t">Your control centre + launch</div>
+        <div class="d">Run everything from your phone — orders, prep times, riders, menu and prices. We publish it to the store and support you for 30 days after launch.</div>
+      </div>
+      <div class="amt">₦350,000</div>
+    </div>
+
+  </div>
+
+  <div class="totrow">
+    <div class="lab">Total<span>One-time payment — nothing monthly</span></div>
+    <div class="amt">₦1,200,000</div>
+  </div>
+
+  <div class="cols">
+    <div class="block">
+      <div class="bh"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="var(--pink)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="M3 10h18"/></svg> How payment works</div>
+      <div class="pay-step"><div class="n">50%</div><div><div class="pt">₦600,000 to start</div><div class="ps">Reserves your build dates, work begins</div></div></div>
+      <div class="pay-step"><div class="n">50%</div><div><div class="pt">₦600,000 at launch</div><div class="ps">When your app goes live in the store</div></div></div>
+    </div>
+
+    <div class="block">
+      <div class="bh"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="var(--mint)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4 10-10"/></svg> What you'll never pay</div>
+      <ul class="never">
+        <li><span class="ck"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4 10-10"/></svg></span>No <b>monthly subscription</b></li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4 10-10"/></svg></span>No <b>app store fees</b> on your side</li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4 10-10"/></svg></span>No separate bill for the <b>ordering &amp; payment system</b> — it's included</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="phonenote">
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="var(--pink-d)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M10 5.5h4"/></svg>
+    <span>We launch on <b>Android</b> first, where most of your customers are. When you're ready, your app can be switched on for <b>iPhone</b> too — it's the same app, so nothing is rebuilt.</span>
+  </div>
+
+  <div class="foot">
+    <div class="who"><div class="nm">Ayomide Adejola</div><div class="em">adeayo35@gmail.com</div></div>
+    <div class="date">Made with love ♥</div>
+  </div>
+
+</div>
+</body>
+</html>
